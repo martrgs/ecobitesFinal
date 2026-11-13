@@ -1,0 +1,11 @@
+    <main class="form-screen list-screen">
+      <div class="page-heading"><button class="back" aria-label="Volver" (click)="router.navigateByUrl('/home')">←</button><h1>Mis productos</h1><span class="heading-space"></span></div>
+      <section class="product-list all-products" *ngIf="products.length; else empty">
+        <article class="product-card" *ngFor="let product of products">
+          <div class="product-icon"><img *ngIf="product.photo" [src]="product.photo" alt="" /><ng-container *ngIf="!product.photo">{{ emoji(product.category) }}</ng-container></div>
+          <div class="product-info"><strong>{{ product.name }}</strong><span>{{ product.category }}<ng-container *ngIf="product.quantity"> · {{ product.quantity }}</ng-container></span><small>Vence {{ product.expiration | date:'dd/MM/yyyy' }}</small></div>
+          <button class="remove" aria-label="Eliminar producto" (click)="remove(product.id)">×</button>
+        </article>
+      </section>
+      <ng-template #empty><div class="empty-card"><span>🧺</span><strong>Aún no tienes productos</strong><p>Agrega alimentos para tenerlos organizados en un solo lugar.</p><button class="primary" (click)="router.navigateByUrl('/add-product')">+ Agregar producto</button></div></ng-template>
+    </main>

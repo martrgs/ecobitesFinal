@@ -1,0 +1,36 @@
+@use './app/styles/pages.scss';
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+:root {
+  --eco-deep: #073b22;
+  --eco-dark: #0b5d32;
+  --eco-primary: #12a84b;
+  --eco-bright: #38c85a;
+  --eco-lime: #9be34c;
+  --eco-surface: #f4fff6;
+  --eco-card: #fafffb;
+  --eco-soft: #ddf8e5;
+  --eco-border: #b9e8c7;
+  --eco-text: #0e4c2a;
+  --eco-secondary: #3e7b52;
+  --eco-muted: #6e9c7c;
+  font-family: "Roboto", "Arial", sans-serif;
+  color: var(--eco-text);
+  background: var(--eco-surface);
+}
+
+* { box-sizing: border-box; }
+html, body, app-root { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
+body { background: var(--eco-surface); color: var(--eco-text); }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+

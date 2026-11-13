@@ -1,0 +1,17 @@
+    <main class="app-screen menu-screen">
+      <header class="settings-header">
+        <button class="settings-back" aria-label="Volver" (click)="router.navigateByUrl('/home')">←</button>
+        <div class="avatar">👩🏻</div>
+        <div class="settings-user"><h1>{{ user?.name }}</h1><p>{{ user?.email }}</p></div>
+        <button class="header-icon" aria-label="Configuración" (click)="router.navigateByUrl('/settings')">⚙</button>
+      </header>
+      <nav class="settings-menu">
+        <button class="active" (click)="router.navigateByUrl('/home')">⌂ &nbsp;&nbsp; Inicio</button>
+        <button (click)="router.navigateByUrl('/products')">▣ &nbsp;&nbsp; Productos</button>
+        <button (click)="router.navigateByUrl('/home'); search()">⌕ &nbsp;&nbsp; Buscar</button>
+        <button (click)="router.navigateByUrl('/settings')">⚙ &nbsp;&nbsp; Configuración</button>
+        <button (click)="router.navigateByUrl('/account')">♙ &nbsp;&nbsp; Mi cuenta</button>
+        <div class="menu-divider"></div>
+        <button (click)="logout()">⇥ &nbsp;&nbsp; Cerrar sesión</button>
+      </nav>
+    </main>

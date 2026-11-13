@@ -1,0 +1,7 @@
+{
+  "name": "ecobites",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
