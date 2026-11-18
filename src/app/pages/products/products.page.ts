@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { ProductCardComponent } from '../../components/product-card.component';
 import { EcoBitesService, type EcoProduct } from '../../data/ecobites.service';
-import { TranslatePipe } from '../../service/translate.pipe';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-products',

@@ -9,9 +9,9 @@ import { ToastController } from '@ionic/angular';
 
 import { EcoBitesService, type EcoProduct } from '../../data/ecobites.service';
 import { BarcodeScannerService } from '../../service/barcode-scanner.service';
-import { FIELD_PATTERNS, FIELD_REGEX } from '../../service/field-validation';
+import { FIELD_PATTERNS, FIELD_REGEX } from '../../validators/field-validation';
 import { FoodProductsService } from '../../service/food-products.service';
-import { TranslatePipe } from '../../service/translate.pipe';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-add-product',

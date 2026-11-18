@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { EcoBitesService, type EcoUser } from '../../data/ecobites.service';
 import { FirebaseService } from '../../service/firebase.service';
-import { TranslatePipe } from '../../service/translate.pipe';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-menu',

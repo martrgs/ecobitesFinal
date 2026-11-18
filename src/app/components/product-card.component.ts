@@ -3,7 +3,7 @@ import { Component, EventEmitter, HostListener, Input, Output, inject } from '@a
 import { Router } from '@angular/router';
 
 import { EcoBitesService, type EcoProduct } from '../data/ecobites.service';
-import { TranslatePipe } from '../service/translate.pipe';
+import { TranslatePipe } from '../pipes/translate.pipe';
 
 @Component({
   selector: 'app-product-card',

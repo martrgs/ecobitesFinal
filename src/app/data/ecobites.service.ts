@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 
-import { FIELD_REGEX } from '../service/field-validation';
+import { FIELD_REGEX } from '../validators/field-validation';
 import { FirebaseService, type FirebaseProduct } from '../service/firebase.service';
 
 export interface EcoProduct {

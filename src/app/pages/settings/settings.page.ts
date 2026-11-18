@@ -4,7 +4,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { EcoBitesService } from '../../data/ecobites.service';
-import { TranslatePipe } from '../../service/translate.pipe';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-settings',

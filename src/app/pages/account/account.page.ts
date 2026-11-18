@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 import { EcoBitesService, type EcoProduct, type EcoUser } from '../../data/ecobites.service';
-import { FIELD_PATTERNS, FIELD_REGEX, utf8Length } from '../../service/field-validation';
+import { FIELD_PATTERNS, FIELD_REGEX, utf8Length } from '../../validators/field-validation';
 import { FirebaseService } from '../../service/firebase.service';
-import { TranslatePipe } from '../../service/translate.pipe';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-account',

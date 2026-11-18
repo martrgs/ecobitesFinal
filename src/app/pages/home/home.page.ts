@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 
 import { ProductCardComponent } from '../../components/product-card.component';
 import { EcoBitesService, type EcoProduct } from '../../data/ecobites.service';
-import { FIELD_PATTERNS, FIELD_REGEX } from '../../service/field-validation';
-import { TranslatePipe } from '../../service/translate.pipe';
+import { FIELD_PATTERNS, FIELD_REGEX } from '../../validators/field-validation';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-home',
