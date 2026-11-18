@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular';
+
 import { EcoBitesService } from './data/ecobites.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { EcoBitesService } from './data/ecobites.service';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor(data: EcoBitesService) {
-    document.body.classList.toggle('dark-mode', data.setting('dark_mode', 'false') === 'true');
+  constructor() {
+    const data = inject(EcoBitesService);
+    data.applyAccountPreferences();
   }
 }

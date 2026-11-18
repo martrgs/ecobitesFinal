@@ -1,0 +1,76 @@
+<main class="screen auth-screen">
+  <button class="back" [attr.aria-label]="'Volver' | t" (click)="router.navigateByUrl('/')">←</button>
+  <img class="form-logo" src="assets/ecobites-logo.png" alt="EcoBites" />
+  <section class="auth-card">
+    <h1>{{ (registering ? 'Crea tu cuenta' : '¡Bienvenido de nuevo!') | t }}</h1>
+    <p>{{ (registering ? 'Únete y empieza a cuidar tus alimentos' : 'Inicia sesión para continuar') | t }}</p>
+    <form (ngSubmit)="submit()">
+      @if (registering) {
+      <label
+        >{{ 'Nombre completo' | t }}<input
+          name="name"
+          [(ngModel)]="name"
+          autocomplete="name"
+          [placeholder]="'♙  Nombre completo' | t"
+          required
+          minlength="2"
+          maxlength="60"
+          [pattern]="patterns.personName"
+          title="Usa de 2 a 60 letras, separadas por espacios, guiones o apóstrofes."
+      /></label>
+      }
+      <label
+        >{{ 'Correo electrónico' | t }}<input
+          name="email"
+          [(ngModel)]="email"
+          type="email"
+          autocomplete="email"
+          [placeholder]="'✉  Correo electrónico' | t"
+          required
+          maxlength="254"
+          [pattern]="patterns.email"
+          title="Escribe un correo con formato nombre@dominio.com."
+      /></label>
+      <label
+        >{{ 'Contraseña' | t }}<input
+          name="password"
+          [(ngModel)]="password"
+          type="password"
+          [autocomplete]="registering ? 'new-password' : 'current-password'"
+          [placeholder]="'♙  Contraseña' | t"
+          required
+          minlength="8"
+          maxlength="72"
+          [pattern]="patterns.password"
+          title="Usa entre 8 y 72 caracteres e incluye una letra y un número."
+      /></label>
+      @if (registering) {
+      <label
+        >{{ 'Confirmar contraseña' | t }}<input
+          name="confirm"
+          [(ngModel)]="confirm"
+          type="password"
+          autocomplete="new-password"
+          [placeholder]="'♙  Confirmar contraseña' | t"
+          required
+          minlength="8"
+          maxlength="72"
+          [pattern]="patterns.password"
+          title="Repite la contraseña con el mismo formato."
+      /></label>
+      } @if (error) {
+      <p class="error">{{ error | t }}</p>
+      }
+      <button class="primary full auth-submit" type="submit" [disabled]="submitting" [attr.aria-busy]="submitting">
+        <span>{{ (registering ? 'Crear cuenta' : 'Iniciar sesión') | t }}</span>
+        @if (submitting) {
+        <span class="auth-submit-spinner" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ (registering ? 'Creando cuenta' : 'Iniciando sesión') | t }}</span>
+        }
+      </button>
+    </form>
+    <button class="text-button full" (click)="toggle()">
+      {{ (registering ? '¿Ya tienes una cuenta? Inicia sesión' : '¿No tienes una cuenta? Regístrate') | t }}
+    </button>
+  </section>
+</main>

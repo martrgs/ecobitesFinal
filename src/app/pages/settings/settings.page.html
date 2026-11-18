@@ -1,0 +1,95 @@
+<main class="app-screen settings-screen">
+  <div class="page-heading">
+    <button class="back" [attr.aria-label]="'Volver' | t" (click)="router.navigateByUrl('/menu')">←</button>
+    <h1>{{ 'Configuración' | t }}</h1>
+    <span class="heading-space"></span>
+  </div>
+  <nav class="settings-options" [attr.aria-label]="'Preferencias' | t">
+    <label class="settings-option setting-row">
+      <span class="setting-name"
+        ><svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path
+            d="M3.5 9h17M3.5 15h17M12 3c2.2 2.5 3.2 5.5 3.2 9s-1 6.5-3.2 9c-2.2-2.5-3.2-5.5-3.2-9S9.8 5.5 12 3z"
+          /></svg
+        >{{ 'Idioma' | t }}</span
+      >
+      <select [attr.aria-label]="'Idioma' | t" (change)="setLanguage($event)">
+        <option [selected]="language === 'Español'">Español</option>
+        <option [selected]="language === 'English'">English</option>
+      </select>
+    </label>
+    <label class="settings-option setting-row">
+      <span class="setting-name"
+        ><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.8 8.8 0 1 0 20.5 15.2z" /></svg
+        >{{ 'Modo oscuro' | t }}</span
+      >
+      <input type="checkbox" [checked]="dark" (change)="toggleDark($event)" [attr.aria-label]="'Modo oscuro' | t" />
+    </label>
+    <label class="settings-option setting-row">
+      <span class="setting-name"
+        ><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" /></svg
+        >{{ 'Notificaciones' | t }}</span
+      >
+      <input
+        type="checkbox"
+        [checked]="notifications"
+        (change)="toggleNotifications($event)"
+        [attr.aria-label]="'Notificaciones' | t"
+      />
+    </label>
+    <button class="settings-option settings-link" type="button" (click)="openInfo('privacy')">
+      <span class="setting-name"
+        ><svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3 20 7v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7z" />
+          <path d="M9.5 11a2.5 2.5 0 1 1 4.4 1.6c-.9.9-1.9 1-1.9 2.4M12 17.5v.1" /></svg
+        >{{ 'Privacidad' | t }}</span
+      ><span class="setting-chevron">›</span>
+    </button>
+    <button class="settings-option settings-link" type="button" (click)="openInfo('about')">
+      <span class="setting-name"
+        ><svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v5M12 7.5v.1" /></svg
+        >{{ 'Acerca de EcoBites' | t }}</span
+      ><span class="setting-chevron">›</span>
+    </button>
+  </nav>
+  @if (error) {
+  <p class="form-error" role="alert">{{ error | t }}</p>
+  }
+  <footer class="settings-footer">{{ 'Juntos por un planeta más limpio 🌱' | t }}</footer>
+  @if (infoModal) {
+  <div class="info-modal-backdrop">
+    <section class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+      <button class="info-modal-close" type="button" [attr.aria-label]="'Cerrar' | t" (click)="closeInfo()">×</button>
+      @if (infoModal === 'privacy') {
+      <div>
+        <span class="info-modal-icon">♢</span>
+        <h2 id="info-modal-title">{{ 'Privacidad' | t }}</h2>
+        <p>
+          {{ 'EcoBites guarda tu perfil, tus productos y tus preferencias para que puedas consultarlos en tu cuenta.' |
+          t }}
+        </p>
+        <p>
+          {{ 'Tus productos y ajustes se asocian a tu usuario. Mantén protegidos tus datos de acceso y cierra sesión si
+          compartes tu dispositivo.' | t }}
+        </p>
+      </div>
+      } @else {
+      <div>
+        <span class="info-modal-icon">ⓘ</span>
+        <h2 id="info-modal-title">{{ 'Acerca de EcoBites' | t }}</h2>
+        <p>{{ 'EcoBites te ayuda a organizar tus alimentos y revisar sus fechas de vencimiento.' | t }}</p>
+        <p>
+          {{ 'Al tener tus productos a la mano, puedes planear su consumo y reducir el desperdicio de comida.' | t }}
+        </p>
+      </div>
+      }
+      <button class="primary info-modal-action" type="button" (click)="closeInfo()">{{ 'Entendido' | t }}</button>
+    </section>
+  </div>
+  }
+</main>

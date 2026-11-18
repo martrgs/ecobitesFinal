@@ -1,0 +1,48 @@
+.settings-header { display: flex; align-items: center; min-height: 112px; padding: max(23px, env(safe-area-inset-top)) 18px 16px; color: white; background: linear-gradient(120deg, #0b5d32, #168a43); border-radius: 0 0 22px 22px; }
+.settings-header h1 { margin: 0; color: white; font-size: 27px; }
+.settings-header p { margin: 3px 0 0; color: #e6f4dd; font-size: 13px; }
+.settings-header { min-height: 124px; gap: 11px; }
+.settings-back { width: 27px; border: 0; color: white; background: transparent; font-size: 25px; }
+.settings-header .settings-user { flex: 1; min-width: 0; }
+.settings-header h1 { font-size: 23px; }
+.settings-header p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.settings-header > span { font-size: 21px; }
+.settings-menu { display: grid; gap: 2px; padding: 12px 14px; }
+.settings-menu h2 { margin: 7px 17px 3px; color: var(--eco-text); font-size: 14px; }
+.settings-menu > button { min-height: 47px; padding: 0 17px; border: 0; border-radius: 10px; color: #172f20; background: transparent; text-align: left; font-size: 14px; }
+.settings-menu > button:first-child { min-height: 54px; color: #164b29; background: var(--eco-soft); }
+.menu-screen .settings-header { min-height: 150px; }
+.menu-screen .menu-settings-button { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; }
+.menu-screen .menu-settings-button svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.menu-screen .settings-menu > button { display: flex; align-items: center; gap: 12px; min-height: 52px; padding-inline: 22px; font-size: 11px; }
+.menu-screen .settings-menu > button svg { width: 14px; height: 14px; flex: 0 0 14px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.menu-screen .settings-menu > button.active { min-height: 58px; color: #075a2b; background: #d6f5df; }
+.menu-screen .settings-menu > button.active svg { stroke-width: 2.2; }
+.menu-screen .settings-menu > button span { color: inherit; font-size: inherit; }
+.menu-screen .menu-divider { margin: 8px 8px; }
+.menu-screen .logout-item { justify-content: flex-start; margin-top: 4px; text-align: left; }
+.menu-screen .logout-item .button-spinner { width: 14px; height: 14px; flex-basis: 14px; }
+.settings-menu .account-card { display: flex; align-items: center; gap: 10px; background: white; }
+.settings-menu .account-card .avatar { width: 42px; height: 42px; flex-basis: 42px; }
+.settings-menu > button:not(.account-card) span { color: var(--eco-secondary); font-size: 20px; }
+.menu-divider { height: 1px; margin: 9px 4px; background: #dde7de; }
+.dark-mode .settings-menu .account-card { background: #1b3224; }
+.settings-header { padding-left: max(20px, calc((100vw - 1120px) / 2)); padding-right: max(20px, calc((100vw - 1120px) / 2)); }
+.settings-menu { width: min(100%, 760px); margin-inline: auto; }
+
+@media (min-width: 760px) {
+  .settings-menu { padding: 20px 26px; }
+}
+body.dark-mode .settings-menu .account-card { border-color: #34483b; background: var(--eco-card); }
+body.dark-mode .settings-menu > button { color: #dce9df; }
+body.dark-mode .settings-menu > button:first-child { color: #e0f4e5; background: #253a2d; }
+body.dark-mode .settings-menu h2 { color: #edf5ef; }
+body.dark-mode .menu-divider { background: #405648; }
+
+@media (max-width: 420px) {
+  .settings-header { padding-right: 15px; padding-left: 15px; }
+}
+
+@media (min-width: 1200px) {
+  .settings-menu { padding-right: 32px; padding-left: 32px; }
+}

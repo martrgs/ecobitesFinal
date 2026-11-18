@@ -1,4 +1,12 @@
-@use './app/styles/pages.scss';
+@use './app/styles/base.scss';
+@use './app/pages/welcome/welcome.page.scss';
+@use './app/pages/auth/auth.page.scss';
+@use './app/pages/home/home.page.scss';
+@use './app/pages/products/products.page.scss';
+@use './app/pages/add-product/add-product.page.scss';
+@use './app/pages/menu/menu.page.scss';
+@use './app/pages/settings/settings.page.scss';
+@use './app/pages/account/account.page.scss';
 @import "@ionic/angular/css/core.css";
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
@@ -33,4 +41,35 @@ html, body, app-root { width: 100%; min-width: 320px; min-height: 100%; margin: 
 body { background: var(--eco-surface); color: var(--eco-text); }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
+
+ion-toast.ecobites-success-toast {
+  --background: #168a43;
+  --color: #fff;
+  --border-radius: 14px;
+  --box-shadow: 0 8px 24px rgb(7 59 34 / 24%);
+}
+
+/* Permite desplazarse dentro de cada página Ionic cuando el contenido supera la pantalla. */
+ion-router-outlet > .ion-page,
+ion-router-outlet .ion-page {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ML Kit muestra la vista de cámara detrás de la WebView y deja visible el visor. */
+body.barcode-scanner-active {
+  visibility: hidden;
+  background: transparent;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+body.barcode-scanner-active ion-app,
+body.barcode-scanner-active ion-router-outlet {
+  background: transparent;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
 

@@ -1,0 +1,132 @@
+<main class="form-screen product-screen">
+  <img class="add-product-logo" src="assets/ecobites-logo.png" alt="EcoBites" />
+  <div class="page-heading">
+    <button class="back" [attr.aria-label]="'Volver' | t" (click)="router.navigateByUrl('/home')">←</button>
+    <h1>{{ (editingProduct ? 'Editar producto' : 'Agregar producto') | t }}</h1>
+    <span class="heading-space"></span>
+  </div>
+  <form class="product-form" (ngSubmit)="save()" [attr.aria-busy]="loading || saving">
+    @if (loading) {
+    <p>{{ 'Cargando producto…' | t }}</p>
+    }
+    <button type="button" class="scan-button" (click)="scanProductBarcode()" [disabled]="scanning">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2M7 8v8m3-8v8m3-8v8m3-8v8"
+        />
+      </svg>
+      <span>{{ (scanning ? 'Escaneando código…' : 'Escanear código de barras') | t }}</span>
+    </button>
+    @if (barcode) {
+    <p class="barcode-hint">{{ 'Código leído:' | t }} <strong>{{ barcode }}</strong></p>
+    }
+    <label
+      >{{ 'Nombre del producto' | t }}
+      <input
+        name="name"
+        [(ngModel)]="name"
+        [placeholder]="'Ej: Leche' | t"
+        required
+        minlength="2"
+        maxlength="50"
+        [pattern]="patterns.productName"
+        title="Usa de 2 a 50 letras, números, espacios y puntuación básica."
+      />
+    </label>
+
+    <label
+      >{{ 'Categoría' | t }}
+      <input
+        name="category"
+        [(ngModel)]="category"
+        list="product-categories"
+        [placeholder]="'Ej: Lácteos' | t"
+        required
+        minlength="2"
+        maxlength="40"
+        [pattern]="patterns.category"
+        title="Usa de 2 a 40 letras, números y puntuación básica."
+      />
+      <datalist id="product-categories">
+        <option value="Lácteos"></option>
+        <option value="Frutas y verduras"></option>
+        <option value="Carnes"></option>
+        <option value="Bebidas"></option>
+        <option value="Panadería"></option>
+        <option value="Granos y cereales"></option>
+        <option value="Otros"></option>
+      </datalist>
+    </label>
+
+    <label
+      >{{ 'Fecha de vencimiento' | t }}
+      <input name="date" [(ngModel)]="date" type="date" [min]="minimumDate" required />
+    </label>
+    <label
+      >{{ 'Cantidad (opcional)' | t }}
+      <input
+        name="quantity"
+        [(ngModel)]="quantity"
+        [placeholder]="'Ej: 1 unidad, 500 g, etc.' | t"
+        maxlength="40"
+        [pattern]="patterns.quantity"
+        title="Usa hasta 40 letras, números, espacios y unidades."
+      />
+    </label>
+    <section class="photo-section" [attr.aria-label]="'Foto del producto' | t">
+      <h2>{{ 'Foto del producto' | t }} <span>{{ '(opcional)' | t }}</span></h2>
+      @if (photo) {
+      <div class="photo-preview">
+        <img [src]="photoPreview || photo" [attr.alt]="'Vista previa del producto' | t" decoding="async" />
+        <span class="photo-preview-label">{{ 'Vista previa' | t }}</span>
+        <button
+          type="button"
+          class="remove-photo"
+          (click)="clearPhoto()"
+          [attr.aria-label]="'Borrar foto' | t"
+          [title]="'Borrar foto' | t"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m3 0-.8 13H6.8L6 7m4 4v5m4-5v5" /></svg>
+          <span>{{ 'Borrar foto' | t }}</span>
+        </button>
+      </div>
+      }
+      <div class="photo-actions">
+        <button type="button" class="outline photo-action" (click)="takePhoto()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 8a2 2 0 0 1 2-2h2l1.4-2h5.2L16 6h2a2 2 0 0 1 2 2v10H4V8Z" />
+            <circle cx="12" cy="13" r="3.2" />
+          </svg>
+          <span>{{ 'Tomar foto' | t }}</span>
+        </button>
+        <button type="button" class="outline photo-action" (click)="chooseImage()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="3" />
+            <circle cx="9" cy="9" r="1.5" />
+            <path d="m5 17 5-5 3 3 2-2 5 5" />
+          </svg>
+          <span>{{ 'Galería' | t }}</span>
+        </button>
+      </div>
+      <p class="photo-hint">
+        {{ (processingPhoto ? 'Preparando la foto…' : 'Puedes usar la cámara o elegir una imagen de tu dispositivo.') |
+        t }}
+      </p>
+    </section>
+    @if (error) {
+    <p class="error">{{ error | t }}</p>
+    }
+    <button
+      class="primary full save-button button-with-spinner"
+      type="submit"
+      [disabled]="loading || saving || processingPhoto"
+      [attr.aria-busy]="saving || processingPhoto"
+    >
+      @if (saving || processingPhoto) { <span class="button-spinner" aria-hidden="true"></span> }
+      <span
+        >{{ (processingPhoto ? 'Preparando la foto…' : saving ? 'Guardando…' : editingProduct ? 'Guardar cambios' :
+        'Guardar producto') | t }}</span
+      >
+    </button>
+  </form>
+</main>

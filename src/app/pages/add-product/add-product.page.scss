@@ -1,0 +1,67 @@
+.product-form label { display: block; margin: 13px 0; color: var(--eco-text); font-size: 12px; font-weight: 700; }
+.product-form input, .product-form select { display: block; width: 100%; height: 46px; margin-top: 6px; padding: 0 13px; border: 1px solid #d9ebdd; border-radius: 11px; outline-color: var(--eco-primary); background: #fbfffc; color: var(--eco-text); font-size: 14px; }
+.product-form input, .product-form select { font-weight: 400; }
+.product-form input:focus, .product-form select:focus { border-color: var(--eco-primary); outline: 0; box-shadow: 0 0 0 3px rgb(18 168 75 / 18%); }
+.product-form input::placeholder { color: #8da493; }
+.product-form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; width: min(100%, 660px); margin: 0 auto; padding: 22px 24px; border: 1px solid #e2f2e5; border-radius: 20px; background: white; box-shadow: 0 8px 28px #073b220b; }
+.product-screen { position: relative; }
+.product-screen > .page-heading .back { position: absolute; top: 18px; left: 22px; z-index: 1; }
+.product-screen > .page-heading .heading-space { display: none; }
+.add-product-logo { display: block; width: min(150px, 42vw); height: 54px; margin: 4px auto 0; object-fit: contain; }
+.scan-button { display: flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; margin: 0 0 4px; padding: 0 14px; border: 1px dashed #8aca9a; border-radius: 12px; color: var(--eco-dark); background: #effaf1; font-size: 13px; font-weight: 700; }
+.scan-button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.scan-button:disabled { cursor: wait; opacity: .75; }
+.barcode-hint { margin: 0 0 4px; color: var(--eco-secondary); font-size: 12px; text-align: center; }
+.photo-picker { position: relative; display: flex; width: 100%; min-height: 132px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; overflow: hidden; margin: 9px 0 20px; border: 1px dashed #a7d7b4; border-radius: 16px; color: var(--eco-dark); background: #eaf9ed; }
+.photo-picker > span:first-child { font-size: 34px; }
+.photo-picker strong { font-size: 14px; }
+.photo-picker small { color: var(--eco-secondary); font-size: 11px; }
+.photo-picker.has-photo { height: 190px; padding: 0; border-style: solid; }
+.photo-picker img { width: 100%; height: 100%; object-fit: cover; }
+.change-photo { position: absolute; right: 9px; bottom: 9px; padding: 7px 10px; border-radius: 20px; color: white; background: #073b22d9; font-size: 11px; }
+.save-button { margin-top: 17px; min-height: 49px; }
+.product-screen .page-heading h1 { font-size: 24px; font-weight: 800; }
+.dark-mode .product-form input, .dark-mode .product-form select { color: #e4f4e8; background: #1b3224; }
+.dark-mode .product-form { border-color: #34483b; background: var(--eco-card); }
+.dark-mode .scan-button { border-color: #50785a; color: #b9ecc6; background: #1c3825; }
+.product-form { width: min(100%, 660px); margin-inline: auto; }
+.photo-section { margin-top: 18px; }
+.photo-section h2 { margin: 0 0 14px; color: var(--eco-text); font-size: 14px; font-weight: 700; }
+.photo-section h2 span { color: var(--eco-secondary); font-size: 12px; font-weight: 700; }
+.photo-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.photo-actions > * { min-width: 180px; flex: 1; }
+.photo-actions > button, .photo-actions > label.attach-image { display: flex; height: 56px; min-height: 56px; align-items: center; justify-content: center; margin: 0; padding: 0 14px; text-align: center; }
+.photo-action { gap: 10px; border: 1px solid var(--eco-border); }
+.photo-action svg { width: 21px; height: 21px; flex: 0 0 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.photo-hint { margin: 10px 0 0; color: var(--eco-secondary); font-size: 12px; text-align: center; }
+.photo-preview { position: relative; width: 100%; max-width: 420px; height: clamp(180px, 48vw, 230px); overflow: hidden; margin: 12px auto 14px; border: 1px solid var(--eco-border); border-radius: 16px; background: #effaf1; }
+.photo-preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.photo-preview-label { position: absolute; top: 10px; left: 10px; padding: 5px 9px; border-radius: 99px; color: #174a29; background: rgb(255 255 255 / 90%); font-size: 11px; font-weight: 700; }
+.remove-photo { position: absolute; top: 9px; right: 9px; display: inline-flex; min-height: 34px; align-items: center; gap: 6px; padding: 0 10px; border: 0; border-radius: 99px; color: white; background: #8f2525; font-size: 12px; font-weight: 700; }
+.remove-photo svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+
+@media (min-width: 760px) {
+  .product-form { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .product-form label { font-size: 13px; }
+  .product-form input, .product-form select { font-size: 16px; }
+}
+body.dark-mode .product-form label { color: #dce9df; }
+body.dark-mode .product-form input, body.dark-mode .product-form select { border-color: #405648; background: #17231c; color: #edf5ef; color-scheme: dark; }
+body.dark-mode .product-form input:focus, body.dark-mode .product-form select:focus { border-color: #63d18a; box-shadow: 0 0 0 3px rgb(99 209 138 / 20%); }
+body.dark-mode .product-form input::placeholder { color: #a8b9ad; opacity: 1; }
+body.dark-mode .photo-picker { border-color: #496653; color: #dff2e4; background: #1e3225; }
+body.dark-mode .photo-picker small, body.dark-mode .photo-section h2 span, body.dark-mode .photo-hint { color: #bacabe; }
+body.dark-mode .photo-preview { border-color: #496653; background: #17231c; }
+body.dark-mode .photo-preview-label { color: #edf5ef; background: #1a2720e8; }
+body.dark-mode .remove-photo { color: #fff; background: #8f2525; }
+
+@media (max-width: 420px) {
+  .product-form { padding: 18px 15px; }
+  .photo-actions { flex-wrap: nowrap; }
+  .photo-actions > * { min-width: 0; flex: 1 1 0; }
+  .photo-action { gap: 6px; padding-inline: 8px; font-size: 12px; white-space: nowrap; }
+}
+
+@media (min-width: 1200px) {
+  .product-form { column-gap: 32px; }
+}

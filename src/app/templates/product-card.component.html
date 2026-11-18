@@ -1,0 +1,59 @@
+<article class="food-card" [class.menu-open]="menuOpen">
+  <div class="food-photo">
+    @if (product.photo) {
+      <img [src]="product.photo" [alt]="product.name" />
+    } @else {
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10" /></svg>
+    }
+  </div>
+  <div class="food-details">
+    <div class="food-name-row">
+      <strong>{{ product.name }}</strong><span
+        class="food-signal"
+        [ngClass]="status"
+        role="img"
+        [attr.aria-label]="statusLabel | t"
+      ></span>
+    </div>
+    <div class="food-meta">
+      <span class="food-category">{{ product.category }}</span>
+      @if (product.quantity) {
+        <span class="food-quantity"> · {{ product.quantity }}</span>
+      }
+    </div>
+    <span class="food-expiry"
+      ><svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="5" width="16" height="16" rx="3" />
+        <path d="M8 3v4m8-4v4M4 10h16" /></svg
+      >{{ 'Vence' | t }} {{ product.expiration | date: 'dd/MM/yyyy' }}</span
+    >
+  </div>
+  <div class="food-actions">
+    <button
+      class="food-menu-button"
+      type="button"
+      [attr.aria-label]="'Opciones del producto' | t"
+      [attr.aria-expanded]="menuOpen"
+      aria-haspopup="true"
+      (click)="$event.stopPropagation(); menuOpen = !menuOpen"
+    >
+      •••
+    </button>
+    @if (menuOpen) {
+      <div class="food-menu">
+        <button type="button" (click)="$event.stopPropagation(); edit()" [disabled]="deleting">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16 12-12 4 4L8 20H4zM13 7l4 4" /></svg
+          >{{ 'Editar producto' | t }}
+        </button>
+        <button type="button" (click)="$event.stopPropagation(); remove()" [disabled]="deleting">
+          @if (deleting) {
+            <span class="button-spinner" aria-hidden="true"></span>
+          } @else {
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m3 0-1 13H7L6 7m4 4v5m4-5v5" /></svg>
+          }
+          <span>{{ (deleting ? 'Eliminando…' : 'Eliminar producto') | t }}</span>
+        </button>
+      </div>
+    }
+  </div>
+</article>

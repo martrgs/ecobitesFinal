@@ -1,0 +1,360 @@
+.account-card > span:nth-child(2) {
+  display: grid;
+  flex: 1;
+  gap: 3px;
+}
+.account-card strong {
+  color: var(--eco-text);
+  font-size: 13px;
+}
+.account-card small {
+  color: var(--eco-secondary);
+  font-size: 11px;
+}
+.account-card b {
+  color: var(--eco-secondary);
+  font-size: 20px;
+}
+.profile-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 16px;
+  align-items: center;
+}
+.profile-card {
+  padding: 18px;
+  border: 1px solid #e2f2e5;
+  border-radius: 18px;
+  background: white;
+}
+.profile-card .avatar {
+  grid-row: span 2;
+}
+.profile-card > div:not(.avatar) {
+  display: grid;
+  gap: 3px;
+}
+.profile-card small {
+  color: var(--eco-secondary);
+  font-size: 12px;
+}
+.profile-card strong {
+  color: var(--eco-text);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.account-dashboard {
+  width: min(100%, 720px);
+}
+.account-dashboard > .page-heading h1 {
+  font-size: 24px;
+  font-weight: 800;
+}
+.account-hero,
+.account-info-card,
+.pantry-summary-card,
+.security-entry {
+  border: 1px solid #d5eddb;
+  border-radius: 22px;
+  background: #fbfffc;
+  box-shadow: 0 4px 15px #0b5d3209;
+}
+.account-hero {
+  display: flex;
+  min-height: 112px;
+  align-items: center;
+  gap: 18px;
+  margin: 4px 0 14px;
+  padding: 18px 22px;
+}
+.account-hero-avatar {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  border-radius: 50%;
+  font-size: 38px;
+}
+.account-hero-copy {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+.account-hero-copy strong {
+  color: var(--eco-text);
+  font-size: 22px;
+}
+.account-hero-copy span {
+  overflow-wrap: anywhere;
+  color: var(--eco-secondary);
+  font-size: 14px;
+}
+.account-info-card {
+  margin-bottom: 14px;
+  padding: 18px 20px;
+}
+.account-section-heading,
+.pantry-summary-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.account-section-heading h2,
+.pantry-summary-heading h2 {
+  margin: 0;
+  color: var(--eco-text);
+  font-size: 19px;
+}
+.pantry-link {
+  padding: 4px 0;
+  border: 0;
+  color: #117c3c;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+}
+.account-data-row {
+  display: grid;
+  grid-template-columns: 40px minmax(50px, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+}
+.account-data-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 13px;
+  color: #087b37;
+  background: #e3f8e8;
+}
+.account-data-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.account-data-label {
+  color: var(--eco-secondary);
+  font-size: 13px;
+}
+.account-data-row strong {
+  overflow: hidden;
+  color: var(--eco-text);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pantry-summary-card {
+  margin-bottom: 14px;
+  padding: 18px 20px;
+}
+.pantry-summary-heading h2 {
+  font-size: 16px;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.pantry-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.pantry-stat {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 17px;
+}
+.pantry-stat strong {
+  color: #14552c;
+  font-size: 29px;
+}
+.pantry-stat span {
+  color: #34533d;
+  font-size: 14px;
+}
+.pantry-total {
+  background: #e2f8e6;
+}
+.pantry-expiring {
+  background: #fff5d8;
+}
+.pantry-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 15px;
+}
+.pantry-link span {
+  font-size: 22px;
+}
+.security-entry {
+  display: flex;
+  width: 100%;
+  min-height: 70px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  color: var(--eco-text);
+  text-align: left;
+}
+.security-entry strong {
+  flex: 1;
+  font-size: 15px;
+}
+.account-security-modal label {
+  color: var(--eco-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+.account-security-modal input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  margin-top: 6px;
+  padding: 0 12px;
+  border: 1px solid var(--eco-border);
+  border-radius: 11px;
+  color: var(--eco-text);
+  background: var(--eco-surface);
+  font-size: 14px;
+  font-weight: 400;
+}
+.account-security-modal {
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  text-align: left;
+}
+.account-security-modal > h2,
+.account-security-modal > p {
+  text-align: center;
+}
+.account-security-modal form {
+  display: grid;
+  gap: 10px;
+}
+body.dark-mode .account-hero,
+body.dark-mode .account-info-card,
+body.dark-mode .pantry-summary-card,
+body.dark-mode .security-entry {
+  border-color: #34483b;
+  background: #1a2720;
+  box-shadow: none;
+}
+body.dark-mode .account-data-icon {
+  color: #9de5b2;
+  background: #253a2d;
+}
+body.dark-mode .pantry-stat strong,
+body.dark-mode .pantry-stat span {
+  color: #edf5ef;
+}
+body.dark-mode .pantry-total {
+  background: #23382a;
+}
+body.dark-mode .pantry-expiring {
+  background: #3a3321;
+}
+body.dark-mode .pantry-link {
+  color: #8cdda2;
+}
+body.dark-mode .account-security-modal input {
+  border-color: #405648;
+  background: #17231c;
+}
+.password-card {
+  max-width: 760px;
+  margin: 18px auto;
+  padding: 22px;
+  border: 1px solid #e2f2e5;
+  border-radius: 18px;
+  background: white;
+}
+.password-card h2 {
+  margin: 0;
+  color: var(--eco-text);
+  font-size: 18px;
+}
+.password-card > p {
+  color: var(--eco-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.password-card label {
+  display: block;
+  margin: 14px 0;
+  color: var(--eco-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+.password-card input {
+  display: block;
+  width: 100%;
+  height: 46px;
+  margin-top: 6px;
+  padding: 0 13px;
+  border: 1px solid #d9ebdd;
+  border-radius: 11px;
+  outline-color: var(--eco-primary);
+  background: #fbfffc;
+  color: var(--eco-text);
+}
+.form-message {
+  color: #176b38;
+  font-size: 13px;
+}
+.form-message.form-error {
+  color: #a83434;
+}
+
+@media (min-width: 760px) {
+  .password-card {
+    padding: 28px;
+  }
+  .password-card input {
+    font-size: 16px;
+  }
+}
+body.dark-mode .password-card h2 {
+  color: var(--eco-text);
+}
+body.dark-mode .password-card {
+  border-color: #34483b;
+  background: var(--eco-card);
+}
+body.dark-mode .profile-card {
+  border-color: #34483b;
+  background: var(--eco-card);
+}
+body.dark-mode .password-card > p {
+  color: var(--eco-secondary);
+}
+body.dark-mode .password-card label {
+  color: #dce9df;
+}
+body.dark-mode .password-card input {
+  border-color: #405648;
+  background: #17231c;
+  color: #edf5ef;
+  color-scheme: dark;
+}
+body.dark-mode .profile-card strong {
+  color: #edf5ef;
+}
+body.dark-mode .profile-card small {
+  color: #bacabe;
+}
+body.dark-mode .form-message {
+  color: #9de5b2;
+}
+body.dark-mode .form-message.form-error {
+  color: #ffaaaa;
+}

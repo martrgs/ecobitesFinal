@@ -1,0 +1,41 @@
+<main class="form-screen list-screen products-screen">
+  <div class="page-heading">
+    <button class="back" [attr.aria-label]="'Volver' | t" (click)="router.navigateByUrl('/home')">←</button>
+    <h1>{{ 'Mis productos' | t }}</h1>
+    <span class="heading-space"></span>
+  </div>
+  <p class="products-intro">{{ 'Organiza tus alimentos y revisa sus fechas.' | t }}</p>
+  @if (error) {
+  <p class="form-error" role="alert">{{ error | t }}</p>
+  }
+  <label class="search products-search" [attr.aria-label]="'Buscar productos' | t">
+    <span class="search-icon" aria-hidden="true"></span>
+    <input type="search" [placeholder]="'Buscar producto...' | t" [value]="query" (input)="onSearch($event)" />
+  </label>
+  <div class="product-filters" [attr.aria-label]="'Filtrar productos' | t">
+    <button type="button" [class.active]="filter === 'all'" (click)="setFilter('all')">{{ 'Todos' | t }}</button>
+    <button type="button" [class.active]="filter === 'expiring'" (click)="setFilter('expiring')">
+      {{ 'Por vencer' | t }}
+    </button>
+    <button type="button" [class.active]="filter === 'fresh'" (click)="setFilter('fresh')">{{ 'Al día' | t }}</button>
+  </div>
+  @if (products.length) {
+  <section class="product-list all-products">
+    @for (product of visibleProducts; track product.id) {
+    <app-product-card [product]="product" (removed)="productRemoved($event)" (failed)="error = $event" />
+    }
+  </section>
+  } @if (products.length && !visibleProducts.length) {
+  <p class="no-matches">{{ 'No encontramos productos con esos filtros.' | t }}</p>
+  } @if (!products.length && !error) {
+  <div class="empty-card products-empty">
+    <img
+      class="products-mascot"
+      src="assets/mascota-mis-productos.png"
+      [attr.alt]="'Mascota de EcoBites saludando e invitándote a agregar alimentos' | t"
+    /><strong>{{ 'Aún no tienes productos' | t }}</strong>
+    <p>{{ 'Agrega alimentos para tenerlos organizados en un solo lugar.' | t }}</p>
+    <button class="primary" (click)="router.navigateByUrl('/add-product')">{{ '+ Agregar producto' | t }}</button>
+  </div>
+  }
+</main>

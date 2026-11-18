@@ -1,0 +1,74 @@
+<main class="app-screen">
+  <header class="home-header">
+    <div class="avatar user-avatar" [style.background-color]="userAvatarColor">{{ userInitial }}</div>
+    <div class="greeting">
+      <h1>{{ 'Hola,' | t }} {{ userName }}</h1>
+      <p>{{ '¡Qué bueno verte!' | t }}</p>
+    </div>
+    <button class="header-icon" [attr.aria-label]="'Menú' | t" (click)="router.navigateByUrl('/menu')">
+      <span class="hamburger-icon"><i></i><i></i><i></i></span>
+    </button>
+  </header>
+  <section class="home-content">
+    <label class="search"
+      ><span class="search-icon" aria-hidden="true"></span
+      ><input
+        name="query"
+        [(ngModel)]="query"
+        [placeholder]="'Buscar producto...' | t"
+        maxlength="80"
+        [pattern]="searchPattern"
+        title="La búsqueda admite hasta 80 letras, números y signos básicos."
+    /></label>
+    <aside class="food-summary" [attr.aria-label]="'Resumen de tus alimentos' | t">
+      <h2>
+        <span class="summary-rays" aria-hidden="true"><i></i><i></i><i></i></span>{{ 'Resumen de tus alimentos' | t }}
+      </h2>
+      <div class="summary-content">
+        <div class="summary-stat expiring">
+          <span class="summary-icon calendar-icon" aria-hidden="true"></span>
+          <div><strong>{{ expiringCount }}</strong><span>{{ 'Por vencer' | t }}</span></div>
+        </div>
+        <div class="summary-stat up-to-date">
+          <span class="summary-icon check-icon" aria-hidden="true">✓</span>
+          <div><strong>{{ upToDateCount }}</strong><span>{{ 'Al día' | t }}</span></div>
+        </div>
+        <img class="summary-mascot" src="assets/home-mascota.png" alt="Mascota de EcoBites" />
+      </div>
+    </aside>
+    <div class="section-heading">
+      <h2>{{ 'Mis productos' | t }}</h2>
+      <button class="text-button" (click)="router.navigateByUrl('/products')">{{ 'Ver todos' | t }}</button>
+    </div>
+    @if (error) {
+    <p class="form-error" role="alert">{{ error | t }}</p>
+    } @if (filtered.length) {
+    <div class="product-list">
+      @for (product of filtered.slice(0, 6); track product.id) {
+      <app-product-card [product]="product" (removed)="productRemoved($event)" (failed)="error = $event" />
+      }
+    </div>
+    } @else {
+    <div class="empty-card">
+      <img class="empty-basket" src="assets/home-canasta.png" alt="Canasta con plantas" /><strong
+        >{{ (query ? 'No encontramos ese producto' : 'Aún no tienes productos') | t }}</strong
+      >
+      <p>
+        {{ (query ? 'Prueba con otro nombre o categoría.' : 'Agrega tu primer producto con el botón de abajo y empieza a
+        organizar tus alimentos.') | t }}
+      </p>
+    </div>
+    }
+  </section>
+  <div class="home-actions">
+    <button class="primary" (click)="router.navigateByUrl('/add-product')">
+      ＋ &nbsp; {{ 'Agregar producto' | t }}
+    </button>
+  </div>
+  <nav class="bottom-nav">
+    <button class="selected" (click)="router.navigateByUrl('/home')">⌂<small>{{ 'Inicio' | t }}</small></button
+    ><button (click)="router.navigateByUrl('/products')">▣<small>{{ 'Productos' | t }}</small></button
+    ><button (click)="focusSearch()">⌕<small>{{ 'Buscar' | t }}</small></button
+    ><button (click)="router.navigateByUrl('/menu')">☰<small>{{ 'Menú' | t }}</small></button>
+  </nav>
+</main>

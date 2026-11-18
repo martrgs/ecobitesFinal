@@ -1,0 +1,38 @@
+.setting-row { display: flex; min-height: 45px; align-items: center; justify-content: space-between; padding: 0 17px; color: #172f20; font-size: 13px; }
+.setting-row input { accent-color: var(--eco-primary); }
+.setting-row select { padding: 5px 8px; border: 1px solid var(--eco-border); border-radius: 8px; background: white; color: var(--eco-text); }
+.settings-screen > .page-heading { min-height: 66px; padding-top: 10px; }
+.settings-screen > .page-heading h1 { color: var(--eco-text); font-size: 22px; font-weight: 800; }
+.settings-option { display: flex; min-width: 0; min-height: 70px; align-items: center; justify-content: space-between; gap: 14px; margin: 0; padding: 0 18px; border: 1px solid #d5eddb; border-radius: 19px; color: var(--eco-text); background: #f9fffa; box-shadow: 0 3px 10px #0b5d3208; font-size: 15px; font-weight: 600; }
+.setting-name { display: flex; min-width: 0; align-items: center; gap: 15px; }
+.setting-name svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: #146b35; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.settings-option select { min-height: 38px; padding: 0 11px; border: 1px solid #8aca9a; border-radius: 12px; color: #174a29; background: #fff; color-scheme: light; font-size: 13px; }
+.settings-option select option { color: #174a29; background: #fff; }
+.settings-option input[type='checkbox'] { position: relative; width: 42px; height: 24px; flex: 0 0 42px; margin: 0; appearance: none; border: 1px solid #b6c5ba; border-radius: 99px; background: #d8ded9; cursor: pointer; transition: background 160ms ease, border-color 160ms ease; }
+.settings-option input[type='checkbox']::before { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: white; box-shadow: 0 1px 3px #0003; content: ''; transition: transform 160ms ease; }
+.settings-option input[type='checkbox']:checked { border-color: #0b9f48; background: #0b9f48; }
+.settings-option input[type='checkbox']:checked::before { transform: translateX(18px); }
+.settings-link { width: 100%; text-align: left; cursor: pointer; }
+.setting-chevron { color: #176b38; font-size: 24px; font-weight: 400; }
+.settings-screen .settings-footer { margin-top: auto; padding: 24px 16px max(24px, env(safe-area-inset-bottom)); }
+body.dark-mode .settings-option { border-color: #34483b; color: #edf5ef; background: #1a2720; box-shadow: none; }
+body.dark-mode .setting-name svg, body.dark-mode .setting-chevron { color: #8cdda2; stroke: #8cdda2; }
+body.dark-mode .settings-option select { border-color: #496653; color: #edf5ef; background: #17231c; color-scheme: light; }
+body.dark-mode .settings-option select option { color: #174a29; background: #fff; }
+.info-modal-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; background: rgb(9 25 15 / 56%); backdrop-filter: blur(3px); }
+.info-modal { position: relative; width: min(100%, 430px); padding: 30px 24px 22px; border: 1px solid #d5eddb; border-radius: 24px; color: var(--eco-text); background: #fbfffc; box-shadow: 0 20px 70px #061c0f50; text-align: center; }
+.info-modal-close { position: absolute; top: 10px; right: 13px; width: 34px; height: 34px; border: 0; border-radius: 50%; color: var(--eco-secondary); background: var(--eco-soft); font-size: 24px; line-height: 1; }
+.info-modal-icon { display: grid; width: 52px; height: 52px; place-items: center; margin: 0 auto 12px; border-radius: 50%; color: #087b37; background: #def6e4; font-size: 28px; }
+.info-modal h2 { margin: 0 0 13px; color: #174a29; font-size: 21px; }
+.info-modal p { margin: 0 0 10px; color: #526a59; font-size: 14px; line-height: 1.55; }
+.info-modal-action { width: 100%; min-height: 46px; margin-top: 8px; }
+body.dark-mode .info-modal { border-color: #405648; color: #edf5ef; background: #1a2720; }
+body.dark-mode .info-modal h2 { color: #e4f4e8; }
+body.dark-mode .info-modal p { color: #bacabe; }
+body.dark-mode .info-modal-icon { color: #9de5b2; background: #253a2d; }
+.settings-footer { margin-top: auto; padding: 24px; color: var(--eco-secondary); text-align: center; font-size: 12px; }
+.account-security-modal > .info-modal-icon { text-align: center; }
+.account-security-modal .info-modal-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+body.dark-mode .settings-footer { color: var(--eco-secondary); }
+body.dark-mode .setting-row { color: #dce9df; }
+body.dark-mode .setting-row select { border-color: #405648; background: #17231c; color: #edf5ef; color-scheme: dark; }
