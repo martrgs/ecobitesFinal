@@ -62,7 +62,6 @@ export class EcoBitesService {
     try {
       await this.loadSettings();
     } catch {
-      // Use this account's cached preferences if Firebase is temporarily unavailable.
     }
     if (this.currentUser()?.id === user.id) this.applyAccountPreferences();
   }
